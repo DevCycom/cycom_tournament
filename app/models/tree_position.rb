@@ -1,7 +1,7 @@
 class TreePosition < ActiveRecord::Base
   belongs_to :tree
   belongs_to :user, :foreign_key => :participant_id
-  belongs_to :membership, :foreign_key => :participant_id
+  belongs_to :team, :foreign_key => :participant_id
   has_one :game, :as => :playable
 
   scope :by_position, order("position DESC")
@@ -15,7 +15,7 @@ class TreePosition < ActiveRecord::Base
     if is_individual?
       user.nickname
     else
-      membership.user.nickname
+      team.name
     end
   end
 

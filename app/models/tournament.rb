@@ -44,22 +44,16 @@ class Tournament < ActiveRecord::Base
       memberships.exists?(:user_id => user_id)
     end
   end
-
-  # Give an array of hash describing the subscribed users
-  # If this is an "Individuel" tournament, only the :user is given
-  # Otherwise, also give the team information
-  def subscribed_users
-    result = []
-    if is_individual?
-      users.each do |user|
-        result << { :user => user }
-      end
-    else
-      memberships.each do |membership|
-        result << { :user => membership.user, :team => membership.team }
-      end
-    end
   
+  # Give a hash of subscribed users per team
+  def users_by_team
+    result = {}
+    
+    memberships.each do |membership|
+      result[membership.team] ||= []
+      result[membership.team] << membership.user.nickname
+    end
+    
     result
   end
 
@@ -87,8 +81,15 @@ class Tournament < ActiveRecord::Base
   def fill_ranking(round)
     if round == 1
       participants = []
-      subscriptions.each do |subscription|
-        participants << subscription.participant_id
+      
+      if is_individual?
+        subscriptions.each do |subscription|
+          participants << subscription.participant_id
+        end
+      else
+        memberships.each do |membership|
+          participants << membership.team_id unless participants.include?(membership.team_id)
+        end
       end
     end
 
@@ -103,8 +104,14 @@ class Tournament < ActiveRecord::Base
     if rankings.size > 0
       participants = rankings.find_by_round(rankings.size).qualified_participants
     else
-      subscriptions.each do |subscription|
-        participants << subscription.participant_id
+      if is_individual?
+        subscriptions.each do |subscription|
+          participants << subscription.participant_id
+        end
+      else
+        memberships.each do |membership|
+          participants << membership.team_id unless participants.include?(membership.team_id)
+        end
       end
     end
 

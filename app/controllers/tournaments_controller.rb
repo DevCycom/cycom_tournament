@@ -9,6 +9,7 @@ class TournamentsController < ApplicationController
 
   def show
     @tournament = Tournament.find(params[:id])
+    @users = @tournament.users_by_team if @tournament.is_in_team?
 
     respond_with(@tournament)
   end

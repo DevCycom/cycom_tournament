@@ -211,6 +211,7 @@ div#content {
   font-size: 10pt;
   color: #182c33;
   clear: both;
+  overflow: auto;
 }
 
 div#content form {
@@ -431,7 +432,7 @@ table.tree tr
 table.tree td.tree_line
 {
   padding: 0;
-  width: 0;
+  width: 0;  
   border-right: 1px solid black;
 }
 
@@ -444,11 +445,11 @@ table.tree td.tree_empty
 table.tree td.tree_participant
 {
   background-color: #EEEEEE;
+  width: 170px;
 }
 
 table.tree td
 {
-  width: 150px;
   padding-left: 10px;
 }
 

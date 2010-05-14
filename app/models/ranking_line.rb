@@ -1,8 +1,7 @@
 class RankingLine < ActiveRecord::Base
   belongs_to :group
   belongs_to :user, :foreign_key => "participant_id"
-  # FIXME: Why membership ? Teams are badly handled
-  belongs_to :membership, :foreign_key => "participant_id"
+  belongs_to :team, :foreign_key => "participant_id"
 
   scope :by_points, order('points DESC')
   scope :by_diff, order('diff DESC')
@@ -13,7 +12,7 @@ class RankingLine < ActiveRecord::Base
     if is_individual?
       user.nickname
     else
-      membership.user.nickname
+      team.name
     end
   end
 

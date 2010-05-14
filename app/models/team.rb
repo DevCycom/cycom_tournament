@@ -15,7 +15,7 @@ class Team < ActiveRecord::Base
   validates_presence_of :password, :if => :should_give_password?
   validates_presence_of :password_confirmation, :if => :should_give_password_confirmation?
   validates_confirmation_of :password
-
+  
   # Password attribute
   attr_reader :password
 

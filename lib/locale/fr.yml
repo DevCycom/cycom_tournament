@@ -1,4 +1,9 @@
 fr-FR:
+  support:
+    array:
+      two_words_connector: " et "
+      words_connector: ", "
+      last_word_connector: " et "
   session:
     welcome: "Bienvenue"
     nickname: "Pseudo"
