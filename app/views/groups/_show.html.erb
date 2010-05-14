@@ -13,9 +13,10 @@
   </tr>
   <%
     pos = 1
+	reset_cycle('group_lines')
     ranking_lines.by_order.each do |r|
   -%>
-    <tr class="<%= cycle("group_line_odd", "group_line_even") %>">
+    <tr class="<%= cycle("group_line_odd", "group_line_even", :name => 'group_lines') %>">
       <td><%= pos %></td>
       <td class="group_name" id="id_participant_<%= r.participant.id %>" ><%= r.participant %></td>
       <td><%= r.points %></td>
