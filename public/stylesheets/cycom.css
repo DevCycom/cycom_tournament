@@ -422,6 +422,7 @@ table.group_game td.group_game_name
 table.tree
 {
   border-spacing: 0;
+  overflow: auto;
 }
 
 table.tree tr
@@ -569,7 +570,7 @@ ul#action-box a.admin
 
 div#content form.round_edit
 {
-  display: block;
+  display: none;
   float: left;
   width: 95%;
   margin:0;

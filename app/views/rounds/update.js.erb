@@ -1,0 +1,14 @@
+<% if @round.game.playable.class.name == "Group" %>
+	$('#edit_round_' + <%= @round.id %>).slideUp("1000", function() {
+		$('#edit_round_' + <%= @round.id %>).children('img').replaceWith("<a class='cancel-edit'>[X]</a>");
+	});
+	$('#game_' + <%= @round.game.id %>).replaceWith("<%= escape_javascript(render 'games/game', :game => @round.game) %>");
+	$('#game_' + <%= @round.game.id %>).effect("highlight", {}, 2000);
+
+	<% if @round.game.is_not_done? and @round.is_done? %>
+		$('#edit_game_' + <%= @round.game.id %>).replaceWith("<%= escape_javascript(render 'games/round_edit', :game => @round.game) %>");
+	<% else %>
+		$('#group').replaceWith("<%= escape_javascript(render 'groups/show', :ranking_lines => @round.game.playable.ranking_lines) %>");
+		$('#group').effect("highlight", {}, 2000);
+	<% end %>
+<% end %>

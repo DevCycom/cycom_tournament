@@ -11,6 +11,12 @@
 
 <%= h2 t("game.index") %>
 
-<%= javascript_include_tag "games" %>
+<% @group.games.in_groups_of(2, false) do |couple_games| %>
+	<%= render "games/game", :game => couple_games[0] %>
+	<%= render "games/game", :game => couple_games[1] if couple_games[1] %>
+	
+	<%= render "games/round_edit", :game => couple_games[0] %>
+	<%= render "games/round_edit", :game => couple_games[1] if couple_games[1] %>
+<% end %>
 
-<%= render :partial => "games/game", :collection => @group.games %>
+<%= javascript_include_tag "games" %>

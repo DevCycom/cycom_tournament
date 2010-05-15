@@ -1,0 +1,16 @@
+<% c = cycle("left", "right") %>
+
+<div id="edit_game_<%= game.id %>">
+<% game.rounds.each do |round| %>
+	<%= form_for round, :builder => ActionView::Helpers::FormBuilder,
+						:remote => true, :html => { :class => "round_edit #{c}" } do |f| %>
+		<a class="cancel-edit">[X]</a>
+		<%= f.label :first_score, game.first_participant %>
+		<%= f.text_field :first_score %>
+		<%= f.label :second_score, game.second_participant %>
+		<%= f.text_field :second_score %>
+		<%= f.select :state, Round::STATES %>
+		<%= f.submit "OK" %>
+	<% end %>
+<% end %>
+</div>

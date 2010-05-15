@@ -24,5 +24,9 @@ class Round < ActiveRecord::Base
       game.end_of_round(self)
     end
   end
+
+  def is_done?
+    state != SCHEDULED and state != RUNNING
+  end
   
 end
