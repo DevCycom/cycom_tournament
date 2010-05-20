@@ -65,10 +65,12 @@ class SemanticFormBuilder < ActionView::Helpers::FormBuilder
     wrapping("textarea", field_name, label, super, options)
   end
 
+begin
   def submit(method, options = {})
     field_name, label, options = field_settings(method, options.merge( :label => "&nbsp;"))
     wrapping("submit", field_name, label, super, options)
   end
+end
 
   def submit_and_cancel(submit_name, cancel_name, options = {})
     submit_button = @template.submit_tag(submit_name, options)

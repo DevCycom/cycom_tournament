@@ -1,0 +1,23 @@
+<% if false %>
+<% action_box do %>
+	<% if admin? %>
+		<li><%= link_to t("product.new"), new_product_path, :class => "admin" %></li>
+	<% end %>
+<% end %>
+<% end %>
+
+<% @products.each do |product| %>
+  <%= h2 product.name %>
+  <div>
+  	<%= "#{t("product.name")} : #{product.name}" %><br />
+		<%= "#{t("product.price")} : #{product.price}" %><br />
+   	<%= "#{t("product.quantity")} : #{product.quantity}" %><br />
+    <%= "#{t("product.description")} : #{product.description}" %><br />
+		<%= link_to t("general.show"), product %>
+		<% if admin? %>
+			<%= link_to t("general.edit"), edit_product_path(product) %></td>
+			<%= link_to t("general.delete"), product, :confirm => t('general.confirm'), :method => :delete %></td>
+		<% end %>
+  </div>
+<% end %>
+

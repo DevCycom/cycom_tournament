@@ -87,14 +87,13 @@ fr-FR:
     new: "Valider"
     edit: "Modifier"
     join: "Joindre"
-  food:
-    edit: "Modifier un article"
+  product:
+    edit: "Modifier un produit"
     name: "Buvette"
-    new: "Ajouter un article"
-    add: "Ajouter un article"
-    list: "Articles"
-    order: "Ajouter au panier"
-    date: "Date"
+    new: "Ajouter un produit"
+    quantity: "Quantité"
+    description: "Description"
+    price: "Prix"
   order:
     order_name: "Commande"
     name: "Panier"
@@ -233,3 +232,8 @@ fr-FR:
         title: "Titre"
         content: "Contenu"
         date: "Date"
+      product:
+        name: "Nom"
+        price: "Prix"
+        quantity: "Quantité"
+        description: "Description"

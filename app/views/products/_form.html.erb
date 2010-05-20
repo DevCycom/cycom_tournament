@@ -1,0 +1,9 @@
+<%= form_for(@product) do |f| %>
+	<%= render 'shared/error_messages', :target => @product %>
+
+  <%= f.text_field :name %>
+  <%= f.text_field :price %>
+  <%= f.text_field :quantity %>
+  <%= f.text_area :description %>
+  <%= f.submit @product.new_record? ? t("validate.new") : t("validate.edit") %>
+<% end %>
