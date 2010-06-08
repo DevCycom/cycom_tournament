@@ -18,6 +18,10 @@ div#header h1 {
   width: 65%;
   font-size: 0;
 }
+div#header h1 a {
+	display: block;
+	height: 100%;
+}
 
 div#login {
   position: absolute;
