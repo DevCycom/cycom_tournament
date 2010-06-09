@@ -19,7 +19,7 @@
 	    		<%=t "session.welcome" %> <%= User.find(session[:user_id]).first_name %> -
 	    		<%= link_to "Deconnexion", logout_path %>
 	  		<% else -%>
-	    		<% form_tag(login_path, { :id => 'login-form-head'}) do -%>
+	    		<%= form_tag(login_path, { :id => 'login-form-head'}) do -%>
 	      			<%= link_to t("user.new"), new_user_path %>
 		  			<%= text_field_tag 'nickname', t("session.nickname"), :onfocus => "this.value = ''" %>
 	      			<%= password_field_tag 'password', 'Password', :onfocus => "this.value = ''" %>

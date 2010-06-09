@@ -2,7 +2,7 @@
   <% if tournament.is_individual? -%>
     <% users = User.available_for_tournament(tournament.id) -%>
     <% unless users.empty? -%>
-	      <% form_tag :controller => :subscriptions, :action => :create,
+	      <%= form_tag :controller => :subscriptions, :action => :create,
 		 :tournament_id => tournament.id  do -%>
 				<%= select_tag 'participant_id',
 		    		options_from_collection_for_select(users, :id, :nickname) %>
@@ -12,7 +12,7 @@
   <% else -%>
     <% teams = Team.all -%>
     <% unless teams.empty? -%>
-	    <% form_tag :controller => :subscriptions, :action => :create,
+	    <%= form_tag :controller => :subscriptions, :action => :create,
 		 :tournament_id => tournament.id  do -%>
 			<%= select_tag 'membership_id',
 		    	options_from_collection_for_select(teams, :id, :name) %>
@@ -30,7 +30,7 @@
   <% else -%>
     <% memberships = Membership.available_for_tournament(tournament, session[:user_id]) -%>
     <% unless memberships.empty? -%>
-    	<% form_tag :controller => :subscriptions, :action => :create,
+    	<%= form_tag :controller => :subscriptions, :action => :create,
 			 :tournament_id => tournament.id  do -%>
 			<%= select_tag 'membership_id',
 	    	options_from_collection_for_select(memberships, :id, :desc) %>

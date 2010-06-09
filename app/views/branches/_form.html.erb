@@ -1,4 +1,4 @@
-<% form_for(@branch) do |f| %>
+<%= form_for(@branch) do |f| %>
   <%= render "shared/error_messages", :target => @branch %>
   <%= f.text_field :name %>
   <%= f.text_field :abbreviation %>
