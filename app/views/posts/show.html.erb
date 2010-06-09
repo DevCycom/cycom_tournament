@@ -1,21 +1,21 @@
 <p>
   <b>Title:</b>
-  <%=h @post.title %>
+  <%= @post.title %>
 </p>
 
 <p>
   <b>Content:</b>
-  <%=h @post.content %>
+  <%=raw textilize(h @post.content) %>
 </p>
 
 <p>
   <b>Author:</b>
-  <%=h @post.author_id %>
+  <%= @post.author_id %>
 </p>
 
 <p>
   <b>Date:</b>
-  <%=h @post.date %>
+  <%= @post.date %>
 </p>
 
 <% if admin? -%>

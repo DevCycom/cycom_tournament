@@ -9,7 +9,7 @@
 <% @posts.each do |post| %>
   <%= h2 post.title%>
   <div>
-  	<%=h post.content %>
+  	<%=raw textilize(h post.content) %>
   </div>
   Post by <%= post.author.nickname %> at <%= post.date %>
   <% if admin? %>
