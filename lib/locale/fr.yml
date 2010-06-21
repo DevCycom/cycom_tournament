@@ -12,6 +12,7 @@ fr-FR:
     ok: "Identification reussie"
     attack: "Il semblerait que quelqu'un vous ait vole votre identite. Pour y remedier, tous vos cookies ont ete supprimes"
     logout: "Vous avez bien été déconnecté"
+    must_connect: "Vous devez d'abord vous connecter"
   menu:
     events: "Evènements"
     teams: "Equipes"

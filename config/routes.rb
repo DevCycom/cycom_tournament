@@ -1,4 +1,5 @@
 CycomTournament::Application.routes.draw do |map|
+  resources :foods
   resources :products
 
   resources :rounds

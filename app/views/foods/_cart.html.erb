@@ -1,0 +1,27 @@
+<% if (!@current_order.nil?) %>
+		<h2><%= t("order.name") %></h2>
+	<table>
+			<% for article in @current_order.articles %>
+			<tr class="cart_content">
+				<td><%= article.food.name%></td>
+				<td>(<%= article.quantity %>)</td>
+				<td>
+					<div class="cart_content">
+						<%= link_to (image_tag ("add.png")), :controller => :foods, :action => :add_to_cart, :id => article.food.id %>
+						<%= link_to (image_tag ("delete.png")), :controller => :foods, :action => :remove_from_cart, :id => article.food.id %>
+					</div>
+				</td>
+				<td>
+					<div class="cart_content">
+					<%= link_to (image_tag ("cross.png")), :controller => :foods, :action => :delete_from_cart, :id => article.food.id %>
+					</div>
+				</td>
+			</tr>
+		<% end %>
+	</table>
+	<% if (!@current_order.nil? && @current_order.checkout_at.nil?) %>
+		<%= link_to t("order.validate_cart") %>
+		<% else %>
+		<span class="cart_validate"><%= t("order.validated_cart") %></span>
+	<% end -%>
+<% end -%>
