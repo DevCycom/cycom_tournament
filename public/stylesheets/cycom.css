@@ -685,3 +685,38 @@ div.container
 {
   overflow: auto;
 }
+
+/* Display products to buy ... */
+div#products {
+	
+}
+
+div#products div.product {
+	border:1px solid #182C33;
+	float:left;
+	margin-left: 10px;
+	padding:5px;
+}
+
+div#products div.product form {
+	background:none;
+	padding:0;
+	width:auto;
+}
+
+div#products div.product input[type=button], div#products div.product input[type=submit] {
+	  background: #182C33;
+		border: 1px solid #182C33;
+		color: white;
+		font-weight: bold;
+		margin-left: 20px;
+		width: 300px;
+}
+
+div#products div.product div.photo {
+	padding:5px;
+}
+
+div#products div.clear {
+	clear:both;
+}

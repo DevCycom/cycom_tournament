@@ -1,3 +1,15 @@
 <% content_for :cart_content do -%>
 	<%= render :partial => "cart" %>
 <% end %>
+
+<div id="products">
+  <% for product in @products %>
+    <div class="product" id="product_<%= product.id %>">
+      <%= product.name %>
+      <div class="photo"><%= product_photo_tag product, product.photo.url(:thumb) %></div>
+      <div class="add_to_cart"><%= button_to "Acheter", { :action => "add_to_cart", :id => product.id },
+                                             :remote => true %></div>
+    </div>
+  <% end %>
+  <div class="clear"></div>
+</div>

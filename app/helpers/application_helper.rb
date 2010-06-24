@@ -9,4 +9,8 @@ module ApplicationHelper
     
     content_tag(:ul, content, :id => 'action-box') unless content.blank?
   end
+  
+  def product_photo_tag(product, source, options = {})
+    image_tag(source, options) if product.photo.file?
+  end
 end

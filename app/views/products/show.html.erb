@@ -1,5 +1,11 @@
 <p class="notice"><%= notice %></p>
 
+
+<p style="float:right">
+  <%= image_tag @product.photo.url(:small) %>
+</p>
+<br style="clear:left" />
+
 <p>
   <b>Name:</b>
   <%= @product.name %>

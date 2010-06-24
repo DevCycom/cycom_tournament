@@ -1,5 +1,10 @@
 CycomTournament::Application.routes.draw do |map|
-  resources :foods
+  resources :foods do
+    post :add_to_cart, :on => :member
+    get :remove_from_cart, :on => :member
+    get :delete_from_cart, :on => :member
+  end
+  
   resources :products
 
   resources :rounds

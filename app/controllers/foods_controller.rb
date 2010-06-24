@@ -4,7 +4,8 @@ class FoodsController < ApplicationController
   
   private
   def set_current_order
-    @current_order ||= Order.new
+    session[:current_order] ||= Order.new
+    @current_order = session[:current_order]
   end
   
   def ensure_user_is_logged
@@ -16,5 +17,21 @@ class FoodsController < ApplicationController
   
   public
   def index
+    @products = Product.all.find_all{ |p| !p.photo.nil?}
+  end
+  
+  def add_to_cart
+    @product = Product.find(params[:id])
+    @current_order.add(@product) 
+  end
+  
+  def delete_from_cart
+    @product = Product.find(params[:id])
+    @current_order.delete_all(@product) 
+  end
+  
+  def remove_from_cart
+    @product = Product.find(params[:id])
+    @current_order.remove(@product) 
   end
 end

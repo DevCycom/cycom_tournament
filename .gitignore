@@ -3,3 +3,4 @@ config/database.yml
 .bundle
 db/*.sqlite3
 tmp/*
+public/assets/*

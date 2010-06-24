@@ -1,9 +1,13 @@
-<%= form_for(@product) do |f| %>
+<%= form_for(@product, :html => { :multipart => true }) do |f| %>
 	<%= render 'shared/error_messages', :target => @product %>
 
   <%= f.text_field :name %>
   <%= f.text_field :price %>
   <%= f.text_field :quantity %>
   <%= f.text_area :description %>
+  <div class="file-field">
+  <%= product_photo_tag(@product, @product.photo.url(:thumb))%>
+  </div>
+  <%= f.file_field :photo %>
   <%= f.submit @product.new_record? ? t("validate.new") : t("validate.edit") %>
 <% end %>

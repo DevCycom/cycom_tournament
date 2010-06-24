@@ -8,7 +8,7 @@
 
 <% @products.each do |product| %>
   <%= h2 product.name %>
-  <div>
+  <div style="float:left">
   	<%= "#{t("product.name")} : #{product.name}" %><br />
 		<%= "#{t("product.price")} : #{product.price}" %><br />
    	<%= "#{t("product.quantity")} : #{product.quantity}" %><br />
@@ -19,5 +19,7 @@
 			<%= link_to t("general.delete"), product, :confirm => t('general.confirm'), :method => :delete %></td>
 		<% end %>
   </div>
+  <div style="float:left"><%= product_photo_tag product, product.photo.url(:thumb) %></div>
+  <div style="clear:both"></div>
 <% end %>
 
